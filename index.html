@@ -1,10 +1,41 @@
 <html>
-    <head>
-        <title>EduCare JavaScript Helper</title>
-        <link rel="stylesheet" href="style/bootstrap.min.css" />
-        <link rel="stylesheet" href="style/site.css" />
-    </head>
-    <body>
-        <p>HTML content comes here</p>
-    </body>
+
+<head>
+    <title>EduCare JavaScript Helper</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/font-awesome.min.css" />
+    <link rel="stylesheet" href="style/educare.css" />
+    <link rel="stylesheet" href="style/site.css" />
+</head>
+
+<body>
+    <div class="content">
+        <div class="page-header">
+            <h1>EduCare JS</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Notification</h5>
+                <button id="btnNotiSuc" class="btn btn-success">Success</button>
+                <button id="btnNotiInf" class="btn btn-info">Info</button>
+                <button id="btnNotiErr" class="btn btn-danger">Error</button>
+                <button id="btnNotiWar" class="btn btn-warning">Warning</button>
+            </div>
+            <div class="col-md-3">
+                <h5>Exception</h5>
+                <button id=btnExcUnd class="btn btn-primary">Undefined Variable</button>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <script src="scripts/Lib/jquery.min.js"></script>
+    <script src="scripts/Lib/bootstrap.min.js"></script>
+    <script src="scripts/Lib/bootstrap-notify.min.js"></script>
+    <script src="scripts/EduCare/EduCare.js"></script>
+    <script src="scripts/EduCare/EduCare.Ajax.js"></script>
+    <script src="scripts/EduCare/EduCare.Exception.js"></script>
+    <script src="scripts/EduCare/EduCare.Notify.js"></script>
+    <script src="scripts/site.js"></script>
+</body>
 </html>
