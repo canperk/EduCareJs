@@ -8,4 +8,5 @@ Including Helpers
 2. Ajax
 3. Exception
 4. FontAwesome
-5. Coming soon...
+5. Cookies
+6. Coming soon...

@@ -1,4 +1,11 @@
 var EC = EC || {};
 (function(){
-    //Common work comes here
+    EC.Enums = EC.Enums || {};
+    EC.Enums.DateType = {
+        NotSet : 0,
+        Second : 1,
+        Minute  : 2,
+        Hour : 3,
+        Day : 4
+    };
 })();
