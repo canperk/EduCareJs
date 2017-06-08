@@ -1,0 +1,5 @@
+span[data-notify="title"] {
+    display:block;
+    font-size:16px;
+    font-weight:bold;
+}
