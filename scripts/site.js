@@ -34,16 +34,24 @@ $(document).ready(function () {
     });
 
     //Extensions
-    $("#btnExtChi").click(function(){
+    $("#btnExtChi").click(function () {
         $("#btnExcUnd").changeIcon("cog");
     });
-    $("#btnExtRei").click(function(){
+    $("#btnExtRei").click(function () {
         $("#btnExcUnd").removeIcon();
     });
-    $("#btnExtCt1").click(function(){
+    $("#btnExtCt1").click(function () {
         $("#btnExcUnd").changeType("success");
     });
-    $("#btnExtCt2").click(function(){
+    $("#btnExtCt2").click(function () {
         $("#btnExcUnd").changeType("danger");
     });
 });
+
+//Custom Models
+var person = function(){
+    this.id = 0;
+    this.firstName= "";
+    this.lastName= "";
+    this.emails = [];
+};

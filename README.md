@@ -9,4 +9,7 @@ Including Helpers
 3. Exception
 4. FontAwesome
 5. Cookies
-6. Coming soon...
+6. $ Extenisons
+7. Basic Helpers
+    7.1 JSON Serialization / Deserialization
+8. Coming soon...
