@@ -32,4 +32,18 @@ $(document).ready(function () {
         else
             EC.Notify.Error("Cookie does not exist anymore");
     });
+
+    //Extensions
+    $("#btnExtChi").click(function(){
+        $("#btnExcUnd").changeIcon("cog");
+    });
+    $("#btnExtRei").click(function(){
+        $("#btnExcUnd").removeIcon();
+    });
+    $("#btnExtCt1").click(function(){
+        $("#btnExcUnd").changeType("success");
+    });
+    $("#btnExtCt2").click(function(){
+        $("#btnExcUnd").changeType("danger");
+    });
 });
