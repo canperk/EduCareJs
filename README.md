@@ -11,5 +11,5 @@ Including Helpers
 5. Cookies
 6. $ Extenisons
 7. Basic Helpers
-    7.1 JSON Serialization / Deserialization
+    - JSON Serialization / Deserialization
 8. Coming soon...
