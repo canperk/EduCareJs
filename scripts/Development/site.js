@@ -55,7 +55,7 @@ $(document).ready(function () {
     });
 });
 
-//Custom Models
+//Custom Models For JSON
 var person = function(){
     this.id = 0;
     this.firstName= "";

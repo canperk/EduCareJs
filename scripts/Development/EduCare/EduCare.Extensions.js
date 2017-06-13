@@ -1,4 +1,4 @@
-(function (ec) {
+(function () {
     $.fn.changeIcon = function (icon) {
         var self = $(this);
         if (self.is("button")) {
@@ -37,4 +37,4 @@
         else
             throw "changeType method can be used only with buttons";
     }
-})(EC);
+})();
