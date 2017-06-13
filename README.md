@@ -1,6 +1,6 @@
 # EduCareJs
 
-A Javascript helper library for quick startups.
+A Javascript helper library for quick startups. Some functions are depended to jQuery library. Some other functionalties are depended to knockout library. However you can plug in each files that you need.
 
 Including Helpers
 
