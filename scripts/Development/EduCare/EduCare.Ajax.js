@@ -1,3 +1,4 @@
+var EC = EC || {};
 (function () {
     EC.Ajax = EC.Ajax || {};
     EC.Ajax.Get = function (url, callBack) {

@@ -1,3 +1,4 @@
+var EC = EC || {};
 (function () {
     EC.Exception = EC.Exception || {};
     EC.Exception.HandleException = function () {

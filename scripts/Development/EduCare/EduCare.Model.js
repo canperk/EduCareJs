@@ -1,3 +1,5 @@
+var EC = EC || {};
+EC.Models = EC.Models || {};
 (function(){
     EC.BaseViewModel = {
         canInsert : ko.observable(false),

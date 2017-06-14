@@ -1,4 +1,5 @@
-(function()  {
+var EC = EC || {};
+(function () {
     EC.Cookies = EC.Cookies || {};
     EC.Cookies.Set = function (name, value, expire, type) {
         var date = new Date();

@@ -1,3 +1,4 @@
+var EC = EC || {};
 (function () {
     EC.Notify = EC.Notify || {};
     EC.Notify.Info = function (content) {

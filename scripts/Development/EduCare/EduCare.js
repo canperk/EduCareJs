@@ -1,4 +1,5 @@
 var EC = EC || {};
+EC.Models = {};
 (function () {
     EC.Enums = EC.Enums || {};
     EC.Enums.DateType = {
@@ -21,6 +22,4 @@ var EC = EC || {};
 
         return Object.create(type.prototype, obj);
     }
-
-    EC.Models = {};
 })();

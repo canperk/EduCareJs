@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/canperk/EduCareJs#readme",
   "devDependencies": {
-    "glob": "7.1.2",
-    "jquery": "^3.2.1",
-    "webpack": "2.6.1"
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1"
   }
 }
