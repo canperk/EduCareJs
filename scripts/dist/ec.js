@@ -1,5 +1,4 @@
 var EC = EC || {};
-EC.Models = {};
 (function () {
     EC.Enums = EC.Enums || {};
     EC.Enums.DateType = {
@@ -49,7 +48,7 @@ var EC = EC || {};
     }
 
     function errorCallBack() {
-        let message = "Something went wrong!";
+        var message = "Something went wrong!";
         if (EC.Notify)
             EC.Notify.Error(message);
         else
@@ -124,7 +123,6 @@ var EC = EC || {};
 
     EC.Exception.HandleException();
 })();
-var EC = EC || {};
 (function () {
     $.fn.changeIcon = function (icon) {
         var self = $(this);
@@ -166,6 +164,7 @@ var EC = EC || {};
     }
 })();
 var EC = EC || {};
+EC.Models = EC.Models || {};
 (function(){
     EC.BaseViewModel = {
         canInsert : ko.observable(false),

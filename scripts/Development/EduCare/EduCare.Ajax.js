@@ -24,7 +24,7 @@ var EC = EC || {};
     }
 
     function errorCallBack() {
-        let message = "Something went wrong!";
+        var message = "Something went wrong!";
         if (EC.Notify)
             EC.Notify.Error(message);
         else

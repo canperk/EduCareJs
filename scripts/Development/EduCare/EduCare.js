@@ -1,5 +1,4 @@
 var EC = EC || {};
-EC.Models = {};
 (function () {
     EC.Enums = EC.Enums || {};
     EC.Enums.DateType = {
