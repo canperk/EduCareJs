@@ -12,4 +12,5 @@ Including Helpers
 6. $ Extenisons
 7. Basic Helpers
     - JSON Serialization / Deserialization
+9. Model Binding (Knockout Dependency)
 8. Coming soon...
