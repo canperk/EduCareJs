@@ -23,6 +23,8 @@ gulp.task('educareDEV', function () {
         'Scripts/Development/EduCare/EduCare.Extensions.js',
         'Scripts/Development/EduCare/EduCare.Model.js',
         'Scripts/Development/EduCare/EduCare.Notify.js',
+        'Scripts/Development/EduCare/EduCare.Enums.js',
+        'Scripts/Development/EduCare/EduCare.Storage.js',
         'Scripts/Development/EduCare/Product.js',
         'Scripts/Development/EduCare/Category.js',
         'Scripts/Development/EduCare/Supplier.js'

@@ -12,5 +12,7 @@ Including Helpers
 6. $ Extenisons
 7. Basic Helpers
     - JSON Serialization / Deserialization
-9. Model Binding (Knockout Dependency)
-8. Coming soon...
+8. Model Binding (Knockout Dependency)
+9. Local Storage & SessionStorage
+10. Some Basic Enums
+11. Coming soon...

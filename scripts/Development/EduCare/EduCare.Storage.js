@@ -12,7 +12,7 @@
         window.localStorage.removeItem(name);
     };
 
-    EC.LocalStorage.Remove = function () {
+    EC.LocalStorage.Clear = function () {
         window.localStorage.clear();
     };
 
@@ -26,7 +26,7 @@
         window.sessionStorage.setItem(name, JSON.stringify(value));
     };
 
-    EC.SessionStorage.RemoveItem = function (name) {
+    EC.SessionStorage.Remove = function (name) {
         window.sessionStorage.removeItem(name);
     };
 
