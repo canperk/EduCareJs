@@ -2,16 +2,16 @@ var EC = EC || {};
 (function () {
     EC.Notify = EC.Notify || {};
     EC.Notify.Info = function (content) {
-        notify(content, "info", "Information", "fa fa-info");
+        notify(content, EC.Enums.MessageTypes.info, "Information", "fa fa-info");
     }
     EC.Notify.Success = function (content) {
-        notify(content, "success", "Success", "fa fa-check");
+        notify(content, EC.Enums.MessageTypes.success, "Success", "fa fa-check");
     }
     EC.Notify.Warning = function (content) {
-        notify(content, "warning", "Warning", "fa fa-warning");
+        notify(content, EC.Enums.MessageTypes.warning, "Warning", "fa fa-warning");
     }
     EC.Notify.Error = function (content) {
-        notify(content, "danger", "Error", "fa fa-exclamation");
+        notify(content, EC.Enums.MessageTypes.danger, "Error", "fa fa-exclamation");
     }
 
     function notify(c, t, ti, i) {

@@ -128,18 +128,18 @@
     };
 
     EC.Enums.MessageTypes = {
-        _default: "default",
-        _success: "success",
-        _warning: "warning",
-        _danger: "danger",
-        _info: "info"
+        default: "default",
+        success: "success",
+        warning: "warning",
+        danger: "danger",
+        info: "info"
     };
 
     EC.Enums.MessageState = {
         success: 1,
-        warning: 3,
-        info: 4,
-        error: 0
+        warning: 2,
+        info: 3,
+        error: 4
     };
 
     EC.Enums.SortType = {
