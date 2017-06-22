@@ -15,4 +15,5 @@ Including Helpers
 8. Model Binding (Knockout Dependency)
 9. Local Storage & SessionStorage
 10. Some Basic Enums
-11. Coming soon...
+11. Sound Notifications
+12. Coming soon...

@@ -54,6 +54,26 @@
             var p = EC.Deserialize(json, person);
             console.log(p);
         });
+
+        //Sound
+        $("#btnSoundClock").click(function () {
+            EC.Sound.Clock();
+        });
+        $("#btnSoundInbox").click(function () {
+            EC.Sound.Inbox();
+        });
+        $("#btnSoundAlert").click(function () {
+            EC.Sound.Alert();
+        });
+        $("#btnSoundChat").click(function () {
+            EC.Sound.Chat();
+        });
+        $("#btnSoundInstantMessage").click(function () {
+            EC.Sound.InstantMessage();
+        });
+        $("#btnSoundToast").click(function () {
+            EC.Sound.Toast();
+        });
     });
 
     //Custom Models For JSON
