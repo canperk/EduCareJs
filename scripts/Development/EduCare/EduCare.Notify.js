@@ -1,17 +1,16 @@
-var EC = EC || {};
-(function () {
-    EC.Notify = EC.Notify || {};
-    EC.Notify.Info = function (content) {
-        notify(content, EC.Enums.MessageTypes.info, "Information", "fa fa-info");
+(function (ec) {
+    ec.Notify = ec.Notify || {};
+    ec.Notify.Info = function (content) {
+        notify(content, ec.Enums.MessageTypes.info, "Information", "fa fa-info");
     }
-    EC.Notify.Success = function (content) {
-        notify(content, EC.Enums.MessageTypes.success, "Success", "fa fa-check");
+    ec.Notify.Success = function (content) {
+        notify(content, ec.Enums.MessageTypes.success, "Success", "fa fa-check");
     }
-    EC.Notify.Warning = function (content) {
-        notify(content, EC.Enums.MessageTypes.warning, "Warning", "fa fa-warning");
+    ec.Notify.Warning = function (content) {
+        notify(content, ec.Enums.MessageTypes.warning, "Warning", "fa fa-warning");
     }
-    EC.Notify.Error = function (content) {
-        notify(content, EC.Enums.MessageTypes.danger, "Error", "fa fa-exclamation");
+    ec.Notify.Error = function (content) {
+        notify(content, ec.Enums.MessageTypes.danger, "Error", "fa fa-exclamation");
     }
 
     function notify(c, t, ti, i) {
@@ -36,4 +35,30 @@ var EC = EC || {};
                 '</div>'
             });
     }
-})();
+
+    ec.Sound = ec.Sound || {};
+    ec.Sound.Clock = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/long1.mp3");
+        sound.play();
+    }
+    ec.Sound.Inbox = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/long2.mp3");
+        sound.play();
+    }
+    ec.Sound.Alert = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short1.mp3");
+        sound.play();
+    }
+    ec.Sound.Chat = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short2.mp3");
+        sound.play();
+    }
+    ec.Sound.InstantMessage = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short3.mp3");
+        sound.play();
+    }
+    ec.Sound.Toast = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short4.mp3");
+        sound.play();
+    }
+})(EC);

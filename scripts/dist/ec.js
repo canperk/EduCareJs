@@ -1,14 +1,5 @@
 var EC = EC || {};
 (function () {
-    EC.Enums = EC.Enums || {};
-    EC.Enums.DateType = {
-        NotSet: 0,
-        Second: 1,
-        Minute: 2,
-        Hour: 3,
-        Day: 4
-    };
-
     EC.Serialize = function (obj) {
         return JSON.stringify(obj);
     }
@@ -20,6 +11,19 @@ var EC = EC || {};
                 obj[p] = { value: obj[p] };
 
         return Object.create(type.prototype, obj);
+    }
+
+    EC.NewGuid = function () {
+        var _func = function () {
+            return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        };
+        var guid = (_func() + _func() + "-" + _func() + "-4" + _func().substr(0, 3) + "-" + _func() + "-" + _func() + _func() + _func()).toLowerCase();
+        return guid;
+    }
+
+    EC.IsNullOrEmpty = function (text) {
+        var r = !text || !/[^\s]+/.test(text);
+        return r;
     }
 })();
 var EC = EC || {};
@@ -187,20 +191,19 @@ EC.Models = EC.Models || {};
         ko.applyBindings(vm, document.getElementById(element));
     }   
 })();
-var EC = EC || {};
-(function () {
-    EC.Notify = EC.Notify || {};
-    EC.Notify.Info = function (content) {
-        notify(content, "info", "Information", "fa fa-info");
+(function (ec) {
+    ec.Notify = ec.Notify || {};
+    ec.Notify.Info = function (content) {
+        notify(content, ec.Enums.MessageTypes.info, "Information", "fa fa-info");
     }
-    EC.Notify.Success = function (content) {
-        notify(content, "success", "Success", "fa fa-check");
+    ec.Notify.Success = function (content) {
+        notify(content, ec.Enums.MessageTypes.success, "Success", "fa fa-check");
     }
-    EC.Notify.Warning = function (content) {
-        notify(content, "warning", "Warning", "fa fa-warning");
+    ec.Notify.Warning = function (content) {
+        notify(content, ec.Enums.MessageTypes.warning, "Warning", "fa fa-warning");
     }
-    EC.Notify.Error = function (content) {
-        notify(content, "danger", "Error", "fa fa-exclamation");
+    ec.Notify.Error = function (content) {
+        notify(content, ec.Enums.MessageTypes.danger, "Error", "fa fa-exclamation");
     }
 
     function notify(c, t, ti, i) {
@@ -224,5 +227,216 @@ var EC = EC || {};
                 '<a href="{3}" target="{4}" data-notify="url"></a>' +
                 '</div>'
             });
+    }
+
+    ec.Sound = ec.Sound || {};
+    ec.Sound.Clock = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/long1.mp3");
+        sound.play();
+    }
+    ec.Sound.Inbox = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/long2.mp3");
+        sound.play();
+    }
+    ec.Sound.Alert = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short1.mp3");
+        sound.play();
+    }
+    ec.Sound.Chat = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short2.mp3");
+        sound.play();
+    }
+    ec.Sound.InstantMessage = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short3.mp3");
+        sound.play();
+    }
+    ec.Sound.Toast = function(){
+        var sound = new Audio("scripts/development/educare/miscellaneous/sound/short4.mp3");
+        sound.play();
+    }
+})(EC);
+(function () {
+
+    EC.Enums = EC.Enums || {};
+    EC.Enums.DateType = {
+        NotSet: 0,
+        Second: 1,
+        Minute: 2,
+        Hour: 3,
+        Day: 4
+    };
+
+    EC.Enums.HtmlAttributes = {
+        _async: "async",
+        _autocomplete: "autocomplete",
+        _autofocus: "autofocus",
+        _autoplay: "autoplay",
+        _challenge: "challenge",
+        _charset: "charset",
+        _checked: "checked",
+        _cite: "cite",
+        _class: "class",
+        _cols: "cols",
+        _colspan: "colspan",
+        _command: "command",
+        _content: "content",
+        _contenteditable: "contenteditable",
+        _contextmenu: "contextmenu",
+        _controls: "controls",
+        _coords: "coords",
+        _crossorigin: "crossorigin",
+        _data: "data",
+        _datetime: "datetime",
+        _default: "default",
+        _defer: "defer",
+        _dir: "dir",
+        _dirname: "dirname",
+        _disabled: "disabled",
+        _download: "download",
+        _draggable: "draggable",
+        _dropzone: "dropzone",
+        _enctype: "enctype",
+        _for: "for",
+        _form: "form",
+        _formaction: "formaction",
+        _formenctype: "formenctype",
+        _formmethod: "formmethod",
+        _formnovalidate: "formnovalidate",
+        _formtarget: "formtarget",
+        _headers: "headers",
+        _height: "height",
+        _hidden: "hidden",
+        _high: "high",
+        _href: "href",
+        _hreflang: "hreflang",
+        _http_equiv: "http_equiv",
+        _icon: "icon",
+        _id: "id",
+        _inputmode: "inputmode",
+        _ismap: "ismap",
+        _itemid: "itemid",
+        _itemprop: "itemprop",
+        _itemref: "itemref",
+        _itemscope: "itemscope",
+        _itemtype: "itemtype",
+        _keytype: "keytype",
+        _kind: "kind",
+        _label: "label",
+        _lang: "lang",
+        _list: "list",
+        _loop: "loop",
+        _low: "low",
+        _manifest: "manifest",
+        _max: "max",
+        _maxlength: "maxlength",
+        _media: "media",
+        _mediagroup: "mediagroup",
+        _menu: "menu",
+        _method: "method",
+        _min: "min",
+        _minlength: "minlength",
+        _multiple: "multiple",
+        _muted: "muted",
+        _name: "name",
+        _nonce: "nonce",
+        _novalidate: "novalidate",
+        _open: "open",
+        _optimum: "optimum",
+        _pattern: "pattern",
+        _placeholder: "placeholder",
+        _poster: "poster",
+        _preload: "preload",
+        _radiogroup: "radiogroup",
+        _readonly: "readonly",
+        _rel: "rel",
+        _required: "required",
+        _reversed: "reversed",
+        _rows: "rows",
+        _rowspan: "rowspan",
+        _sandbox: "sandbox",
+        _spellcheck: "spellcheck",
+        _scope: "scope",
+        _scoped: "scoped",
+        _seamless: "seamless",
+        _selected: "selected",
+        _shape: "shape",
+        _size: "size",
+        _sizes: "sizes",
+        _sortable: "sortable",
+        _sorted: "sorted",
+        _span: "span",
+        _src: "src",
+        _srcdoc: "srcdoc",
+        _srclang: "srclang",
+        _srcset: "srcset",
+        _start: "start",
+        _step: "step",
+        _style: "style",
+        _tabindex: "tabindex",
+        _target: "target",
+        _title: "title",
+        _translate: "translate",
+        _type: "type",
+        _typemustmatch: "typemustmatch",
+        _usemap: "usemap",
+        _value: "value",
+        _width: "width",
+        _wrap: "wrap"
+    };
+
+    EC.Enums.MessageTypes = {
+        default: "default",
+        success: "success",
+        warning: "warning",
+        danger: "danger",
+        info: "info"
+    };
+
+    EC.Enums.MessageState = {
+        success: 1,
+        warning: 2,
+        info: 3,
+        error: 4
+    };
+
+    EC.Enums.SortType = {
+        asc: "asc",
+        desc: "desc"
+    };
+})();
+(function () {
+    EC.LocalStorage = EC.LocalStorage || {};
+    EC.LocalStorage.Get = function (name) {
+        return JSON.parse(window.localStorage.getItem(name));
+    };
+
+    EC.LocalStorage.Set = function (name, value) {
+        window.localStorage.setItem(name, JSON.stringify(value));
+    };
+
+    EC.LocalStorage.Remove = function (name) {
+        window.localStorage.removeItem(name);
+    };
+
+    EC.LocalStorage.Clear = function () {
+        window.localStorage.clear();
+    };
+
+
+    EC.SessionStorage = EC.SessionStorage || {};
+    EC.SessionStorage.Get = function (name) {
+        return JSON.parse(window.sessionStorage.getItem(name));
+    };
+
+    EC.SessionStorage.Set = function (name, value) {
+        window.sessionStorage.setItem(name, JSON.stringify(value));
+    };
+
+    EC.SessionStorage.Remove = function (name) {
+        window.sessionStorage.removeItem(name);
+    };
+
+    EC.SessionStorage.Clear = function () {
+        window.sessionStorage.clear();
     }
 })();
