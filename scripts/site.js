@@ -51,7 +51,7 @@
         //JSON
         $("#btnJSONDse").click(function () {
             var json = $("#preJson").text();
-            var p = EC.Deserialize(json, person);
+            var p = EC.Utils.Deserialize(json, person);
             console.log(p);
         });
 

@@ -16,4 +16,5 @@ Including Helpers
 9. Local Storage & SessionStorage
 10. Some Basic Enums
 11. Sound Notifications
-12. Coming soon...
+13. Some habits in Utils (Guid, String.Format, IsNullOrEmpty ...)
+14. Coming soon...
