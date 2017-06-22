@@ -37,4 +37,14 @@
         else
             throw "changeType method can be used only with buttons";
     }
+
+    $.fn.blink = function (interval) {
+        var self = $(this);
+        var t = interval || 300;
+        setInterval(function(){
+            self.css('visibility', function(i, visibility) {
+                return (visibility == 'visible') ? 'hidden' : 'visible';
+            });            
+        }, t);
+    }
 })();
