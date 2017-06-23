@@ -1,5 +1,5 @@
 var EC = EC || {};
-(function (ec) {
+(function (jq, ec) {
     ec.Utils = ec.Utils || {};
     ec.Utils.Serialize = function (obj) {
         return JSON.stringify(obj);
@@ -22,14 +22,14 @@ var EC = EC || {};
         return guid;
     }
 
-    EC.Utils.Format = function (text) {
+    ec.Utils.Format = function (text) {
         var str = this;
         var args = arguments;
         var regex = new RegExp("{-?[0-9]+}", "g");
         return text.replace(regex, function (item) {
             var intVal = parseInt(item.substring(1, item.length - 1));
             var replace;
-            if (intVal >= 0) 
+            if (intVal >= 0)
                 replace = args[intVal + 1];
             else if (intVal === -1)
                 replace = "{";
@@ -40,17 +40,38 @@ var EC = EC || {};
             return replace;
         });
     };
-    
 
-    EC.Utils.IsNullOrEmpty = function (text) {
+
+    ec.Utils.IsNullOrEmpty = function (text) {
         var r = !text || !/[^\s]+/.test(text);
         return r;
     }
-})(EC);
-var EC = EC || {};
-(function () {
-    EC.Ajax = EC.Ajax || {};
-    EC.Ajax.Get = function (url, callBack) {
+    ec.Utils.InitLoader = function () {
+        var lc = jq("body .loadingContainer");
+        if (lc.length > 0)
+            return;
+        var loaderHtml = '<div class="loaderContainerMain"><div class="loadingContainer"><div class="cord leftMove"><div class="ball"></div></div><div class="cord"><div class="ball"></div></div><div class="cord"><div class="ball"></div></div><div class="cord"><div class="ball"></div></div><div class="cord"><div class="ball"></div></div><div class="cord"><div class="ball"></div></div><div class="cord rightMove"><div class="ball" id="first"></div></div><div class="shadows"><div class="leftShadow"></div><div></div><div></div><div></div><div></div><div></div><div class="rightShadow"></div></div></div></div>';
+        $("body").append(loaderHtml);
+    }
+
+    ec.Utils.ShowLoader = function () {
+        var lc = jq("body .loaderContainerMain");
+        if (lc.length == 0)
+            ec.Utils.InitLoader();
+        lc.show();
+    }
+
+    ec.Utils.HideLoader = function () {
+        var lc = jq("body .loaderContainerMain");
+        if (lc.length == 0)
+            ec.Utils.InitLoader();
+        lc.hide();
+    }
+
+})($, EC);
+(function (ec) {
+    ec.Ajax = ec.Ajax || {};
+    ec.Ajax.Get = function (url, callBack) {
         $.ajax({
             "url": url,
             "type": "GET",
@@ -60,7 +81,7 @@ var EC = EC || {};
         }).err(errorCallBack);
     }
 
-    EC.Ajax.Post = function (url, data, callBack) {
+    ec.Ajax.Post = function (url, data, callBack) {
         var d = JSON.stringify(data);
         $.ajax({
             "url": url,
@@ -74,12 +95,12 @@ var EC = EC || {};
 
     function errorCallBack() {
         var message = "Something went wrong!";
-        if (EC.Notify)
-            EC.Notify.Error(message);
+        if (ec.Notify)
+            ec.Notify.Error(message);
         else
             alert(message);
     }
-})();
+})(EC);
 var EC = EC || {};
 (function () {
     EC.Cookies = EC.Cookies || {};
@@ -200,6 +221,11 @@ var EC = EC || {};
 })();
 $(document).ready(function(){
     $(".blink").blink();
+    EC.Utils.InitLoader();
+    EC.Utils.ShowLoader();
+    setTimeout(function() {
+        EC.Utils.HideLoader();
+    }, 1500);
 });
 var EC = EC || {};
 EC.Models = EC.Models || {};
@@ -437,39 +463,39 @@ EC.Models = EC.Models || {};
         desc: "desc"
     };
 })();
-(function () {
-    EC.LocalStorage = EC.LocalStorage || {};
-    EC.LocalStorage.Get = function (name) {
-        return JSON.parse(window.localStorage.getItem(name));
+(function (ec) {
+    ec.LocalStorage = ec.LocalStorage || {};
+    ec.LocalStorage.Get = function (name, type) {
+        return ec.Utils.Deserialize(window.localStorage.getItem(name), type);
     };
 
-    EC.LocalStorage.Set = function (name, value) {
-        window.localStorage.setItem(name, JSON.stringify(value));
+    ec.LocalStorage.Set = function (name, value) {
+        window.localStorage.setItem(name, ec.Utils.Serialize(value));
     };
 
-    EC.LocalStorage.Remove = function (name) {
+    ec.LocalStorage.Remove = function (name) {
         window.localStorage.removeItem(name);
     };
 
-    EC.LocalStorage.Clear = function () {
+    ec.LocalStorage.Clear = function () {
         window.localStorage.clear();
     };
 
 
-    EC.SessionStorage = EC.SessionStorage || {};
-    EC.SessionStorage.Get = function (name) {
-        return JSON.parse(window.sessionStorage.getItem(name));
+    ec.SessionStorage = ec.SessionStorage || {};
+    ec.SessionStorage.Get = function (name, type) {
+        return ec.Utils.Deserialize(window.sessionStorage.getItem(name), type);
     };
 
-    EC.SessionStorage.Set = function (name, value) {
-        window.sessionStorage.setItem(name, JSON.stringify(value));
+    ec.SessionStorage.Set = function (name, value) {
+        window.sessionStorage.setItem(name, ec.Utils.Serialize(value));
     };
 
-    EC.SessionStorage.Remove = function (name) {
+    ec.SessionStorage.Remove = function (name) {
         window.sessionStorage.removeItem(name);
     };
 
-    EC.SessionStorage.Clear = function () {
+    ec.SessionStorage.Clear = function () {
         window.sessionStorage.clear();
     }
-})();
+})(EC);

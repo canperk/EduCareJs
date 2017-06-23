@@ -50,4 +50,9 @@
 })();
 $(document).ready(function(){
     $(".blink").blink();
+    EC.Utils.InitLoader();
+    EC.Utils.ShowLoader();
+    setTimeout(function() {
+        EC.Utils.HideLoader();
+    }, 1500);
 });
