@@ -1,36 +1,36 @@
-(function () {
-    EC.LocalStorage = EC.LocalStorage || {};
-    EC.LocalStorage.Get = function (name) {
-        return JSON.parse(window.localStorage.getItem(name));
+(function (ec) {
+    ec.LocalStorage = ec.LocalStorage || {};
+    ec.LocalStorage.Get = function (name, type) {
+        return ec.Utils.Deserialize(window.localStorage.getItem(name), type);
     };
 
-    EC.LocalStorage.Set = function (name, value) {
-        window.localStorage.setItem(name, JSON.stringify(value));
+    ec.LocalStorage.Set = function (name, value) {
+        window.localStorage.setItem(name, ec.Utils.Serialize(value));
     };
 
-    EC.LocalStorage.Remove = function (name) {
+    ec.LocalStorage.Remove = function (name) {
         window.localStorage.removeItem(name);
     };
 
-    EC.LocalStorage.Clear = function () {
+    ec.LocalStorage.Clear = function () {
         window.localStorage.clear();
     };
 
 
-    EC.SessionStorage = EC.SessionStorage || {};
-    EC.SessionStorage.Get = function (name) {
-        return JSON.parse(window.sessionStorage.getItem(name));
+    ec.SessionStorage = ec.SessionStorage || {};
+    ec.SessionStorage.Get = function (name, type) {
+        return ec.Utils.Deserialize(window.sessionStorage.getItem(name), type);
     };
 
-    EC.SessionStorage.Set = function (name, value) {
-        window.sessionStorage.setItem(name, JSON.stringify(value));
+    ec.SessionStorage.Set = function (name, value) {
+        window.sessionStorage.setItem(name, ec.Utils.Serialize(value));
     };
 
-    EC.SessionStorage.Remove = function (name) {
+    ec.SessionStorage.Remove = function (name) {
         window.sessionStorage.removeItem(name);
     };
 
-    EC.SessionStorage.Clear = function () {
+    ec.SessionStorage.Clear = function () {
         window.sessionStorage.clear();
     }
-})();
+})(EC);

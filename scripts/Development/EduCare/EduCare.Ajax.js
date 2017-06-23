@@ -1,7 +1,6 @@
-var EC = EC || {};
-(function () {
-    EC.Ajax = EC.Ajax || {};
-    EC.Ajax.Get = function (url, callBack) {
+(function (ec) {
+    ec.Ajax = ec.Ajax || {};
+    ec.Ajax.Get = function (url, callBack) {
         $.ajax({
             "url": url,
             "type": "GET",
@@ -11,7 +10,7 @@ var EC = EC || {};
         }).err(errorCallBack);
     }
 
-    EC.Ajax.Post = function (url, data, callBack) {
+    ec.Ajax.Post = function (url, data, callBack) {
         var d = JSON.stringify(data);
         $.ajax({
             "url": url,
@@ -25,9 +24,9 @@ var EC = EC || {};
 
     function errorCallBack() {
         var message = "Something went wrong!";
-        if (EC.Notify)
-            EC.Notify.Error(message);
+        if (ec.Notify)
+            ec.Notify.Error(message);
         else
             alert(message);
     }
-})();
+})(EC);
