@@ -131,7 +131,7 @@
         default: "default",
         success: "success",
         warning: "warning",
-        danger: "danger",
+        danger: "error",
         info: "info"
     };
 
