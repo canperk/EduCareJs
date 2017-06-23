@@ -198,6 +198,9 @@ var EC = EC || {};
         }, t);
     }
 })();
+$(document).ready(function(){
+    $(".blink").blink();
+});
 var EC = EC || {};
 EC.Models = EC.Models || {};
 (function(){

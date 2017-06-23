@@ -48,3 +48,6 @@
         }, t);
     }
 })();
+$(document).ready(function(){
+    $(".blink").blink();
+});
