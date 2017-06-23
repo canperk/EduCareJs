@@ -228,34 +228,34 @@ EC.Models = EC.Models || {};
 (function (ec) {
     ec.Notify = ec.Notify || {};
     ec.Notify.Info = function (content) {
-        notify(content, ec.Enums.MessageTypes.info, "Information", "fa fa-info");
+        notify(content, ec.Enums.MessageTypes.info, "Information");
     }
     ec.Notify.Success = function (content) {
-        notify(content, ec.Enums.MessageTypes.success, "Success", "fa fa-check");
+        notify(content, ec.Enums.MessageTypes.success, "Success");
     }
     ec.Notify.Warning = function (content) {
-        notify(content, ec.Enums.MessageTypes.warning, "Warning", "fa fa-warning");
+        notify(content, ec.Enums.MessageTypes.warning, "Warning");
     }
     ec.Notify.Error = function (content) {
-        notify(content, ec.Enums.MessageTypes.danger, "Error", "fa fa-exclamation");
+        notify(content, ec.Enums.MessageTypes.danger, "Error");
     }
 
-    function notify(c, t, ti, i) {
+    function notify(c, t, ti) {
         toastr[t](c, ti);
     }
 
     toastr.options = {
         "closeButton": false,
         "debug": false,
-        "newestOnTop": false,
+        "newestOnTop": true,
         "progressBar": true,
         "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
+        "timeOut": "7000",
+        "extendedTimeOut": "3000",
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
